@@ -1,0 +1,171 @@
+day04
+
+0.복습
+css
+HTML로 만든 웹 문서의 스타일(디자인)을 담당한다
+
+css 형식
+속성1 : 속성값;
+소속성2 : 속성값;
+
+스타일 적용하는 방법
+1)인라인 스타일
+	스타일을 적용시킬 태그에 style 속성을 사용
+	<p style="color:red;>내용</p> (잘 안 씀)
+2)내부 스타일
+	<head>영역에 style태그를 사용하여 각 요소들의 스타일을 정의한다
+	형식
+	선택자 {
+		속성1 : 속성값;
+		속성2 : 속성값;
+	}
+
+	선택자 : 어떤 요소를 선택하기 위해 사용하는 것
+
+id와 class
+id와 class 속성은 특정 태그들을 식별하고 그룹화하는데 사용한다
+모든 태그에 사용 가능한 속성이다
+
+id 
+특정 태그에 식별 가능한 고유값을 부여함
+선택자로 사용할 때는 #id명
+
+class 
+여러 태그를 하나의 집단으로 묶어줌
+선택자로 사용할 때는 .class명 	
+
+3. 외부 스타일
+별도의 css파일을 만들어 적용시킨다
+css 와 html을 완전히 분리하여 관리할 수 있기 때문에 가장 많이 사용하는 방식
+head영역에  link태그를 사용한다
+
+Box Model
+HTML의 모든 요소는 일정한 영역을 차지하게 된다
+css에선 이런 영역을 Box  Model이라고 한다
+
+박스 모델의 구성
+margin : 바깥 여백(테두리 밖의 여백)
+border : 테두리
+padding : 안 쪽 여백(컨텐츠와 테두리 사이의 여백)
+contents : 컨텐츠의 영역
+
+인라인 요소의 박스 모델도 margin, border, padding은 설정 가능하지만
+width, height를 사용할 수 없으므로 컨텐츠 영역의 크기를 설정할 수 없다
+
+박스 모델 css 속성
+
+- contents
+	width : 너비
+	height : 높이
+	-단위는 기본적으로 px이며 그 외에도 여러 단위가 있다
+	-인라인 요소는 불가능하다
+
+- border
+	border : 굵기 모양 색상; 
+	ex) border : 1px solid black;
+
+- padding
+	padding(숫자 한 개) : 4방향;
+	padding(숫자 두 개) : 상하 좌우;
+	padding (숫자 세 개) : 상 좌우 하;
+	padding (숫자 네 개) : 상 우 하 좌(시계방향)
+
+-margin
+	margin(1) : 4방향;
+	margin(2) : 상하 좌우; 
+	margin(3) : 상 좌우 하;
+	margin(4) : 상우하좌(시계 방향)
+	-auto를 사용하면 요소를 중앙에 위치하게 할 수 있다
+	-블록 요소를 세로로 배치하게 되면 margin이 중첩된다
+	20px의 마진을 가진 요소들이 세로로 배치되면 각 요소들을 상하 간격
+	40px이 아닌 20px이다
+
+diplay 속성
+HTML에서 요소를 어떻게 표시할지 결정한다.
+HTML의 요소들은 기본적으로 display의 속성값이 설정되어 있다.
+블록요소 -> display:block;
+인라인 요소 -> display:inline;
+우리가 사용한 블록 요소를 인라인으로 변경하고싶다면 display 속성에 값을
+inline 으로 변경하면 된다
+
+display 속성의 기본 4가지 값
+
+-none
+	요소를 보이지 않게 설정한다
+	단순히 투명해지는 것이 아니라 아예 사라지게 되므로 공간을 차지하지 않는다
+	
+- block
+	블록 요소로 설정한다
+	블록 요소는 기본적으로 가로 영역을 모두 차지한다
+
+-inline
+	인라인 요소로 설정한다
+	인라인 요소는 기본적으로 컨텐츠의 크기만큼만 영역을 차지한다
+	블록요소와 달리 컨텐츠의 너비, 높이를 설정할 수 없다
+
+-inline-block
+	인라인 블록 요소로 설정한다.
+	인라인 블록은 인라인과 블록의 특징을 섞어 놓은 요소이며, 인라인처럼
+	컨텐츠만큼만 영역을 차지하지만 블록처럼 컨텐츠의 너비,높이 설정 가능
+	내부 block요소, 외부는 inline요소의 특징을 가진다
+
+레이아웃을 만들 때 사용하는 속성
+- float 
+- display의 flex box
+- grid
+
+flex box의 구성
+레이아웃을 만드는 하나의 방식
+복잡하지 않게 유연하게 요소들의 크기와 순서를 정하여 배치할 수 있다
+
+flex box의 구성
+
+-flex container
+	레이아웃을 적용하여 배치하려는 요소들을 감싸고 있는 부모요소
+
+-flex item
+	  실질적으로 배치하려는 요소이며 flex container의 자식요소이다
+	  자식 요소인 flex item은 여러개 만들 수 있다
+-주축(main-axis)
+	자식 요소가 배치되는 방향
+-교차축(cross-axis)
+	주축을 가로지르는 방향
+
+flex container 만들기 
+컨테이너로 사용할 부모 요소에 display : flex; 속성을 지정한다
+
+flex container의 주요 속성
+배치하려는 요소들의 전체 흐름, 정렬과 관련된 속성
+
+-display
+	display : flex
+	flex container를 지정하는 속성
+
+-flex-direction
+	flex-direction : row | column;
+	주축의 방향을 지정하는 속성
+	1.row :행방향
+	2.colum : 열방향
+
+-justify-content		
+	컨테이너의 주축을 기준으로 아이템들을 정렬 설정
+	1. center : 중앙 정렬
+	2. space-between : 첫 아이템과 마지막을 컨테이너 영역의 양끝에 배치하고 
+			나머지 아이템들은 동일한 간격으로 정렬된다
+	3. space-around : 모든 아이템들을 동일한 간격으로 정렬한다.
+
+-align-items
+	컨테이너의 교차축을 기준으로 정렬한다
+	justify-content와 속성값은 동일한다
+	1.center
+	2.space-between
+	3.space-around
+
+- flex-wrap
+	flex-wrap : nowrap | wrap;
+	컨테이너 내부의 요소들이 많거나 크기가 커서 컨테이너를 넘어가게 되었을 때
+	한줄로 보여줄 것인지, 여러줄로 보여줄 것인지 지정한다
+	1. no-wrap : 한줄로 보여준다
+		만약 컨테이너의 크기가 작다면 각각의 아이템의 크기가 줄어든다
+	2.wrap : 컨테이너의 크기가 작다면 여러줄로 보여준다
+	
